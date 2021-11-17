@@ -32,7 +32,7 @@ public class NotificationTextTest {
 
     @Before
     public void setUp() {
-        Product product = new Product(757, "Fender Player Stratocaster w/ Maple Fretboard in Buttercream", 12, 10, 20);
+        Product product = new Product(757, "Fender Player Stratocaster w/ Maple Fretboard in Buttercream", 12, 10, 20, 10);
         notificationBuilder = new NotificationBuilder(product);
     }
 }

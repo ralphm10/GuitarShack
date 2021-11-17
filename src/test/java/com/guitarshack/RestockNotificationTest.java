@@ -12,7 +12,7 @@ public class RestockNotificationTest {
     @Test
     public void restockNotificationIsSentForProduct757() {
         Notification notification = mock(Notification.class);
-        Product product = new Product(757, "Fender Player Stratocaster w/ Maple Fretboard in Buttercream", 12, 10, 20);
+        Product product = new Product(757, "Fender Player Stratocaster w/ Maple Fretboard in Buttercream", 12, 10, 20, 10);
         Warehouse warehouse = productId -> product;
         BufferStock bufferStock = product1 -> 10;
         SalesListener salesListener = new SalesListener(notification, warehouse, bufferStock);
@@ -23,7 +23,7 @@ public class RestockNotificationTest {
     @Test
     public void restockNotificationNotSentOnSale() {
         Notification notification = mock(Notification.class);
-        Product product = new Product(757,"", 15,0,0);
+        Product product = new Product(757,"", 15,0,0, 10);
         Warehouse warehouse = productId -> product;
         BufferStock bufferStock = product1 -> 10;
         SalesListener salesListener = new SalesListener(notification,warehouse, bufferStock);
