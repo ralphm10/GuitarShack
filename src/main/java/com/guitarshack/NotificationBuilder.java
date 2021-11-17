@@ -8,6 +8,10 @@ public class NotificationBuilder {
     }
 
     public String build() {
-        return "Please re-order product id " + product.getId() + "- " + product.getDescription() + "\n";
+        return "Please re-order product id " + product.getId() +
+                " - " + product.getDescription() +
+                "\nMin Order: " + product.getMinOrder() +
+                "\nRack Space: " + product.getRackSpace()
+        ;
     }
 }

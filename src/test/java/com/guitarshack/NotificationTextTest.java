@@ -17,7 +17,17 @@ public class NotificationTextTest {
 
     @Test
     public void correctProductDescriptionIsReturnedInText() {
-        assertThat(notificationBuilder.build(), containsString("- Fender Player Stratocaster w/ Maple Fretboard in Buttercream\n"));
+        assertThat(notificationBuilder.build(), containsString(" - Fender Player Stratocaster w/ Maple Fretboard in Buttercream\n"));
+    }
+
+    @Test
+    public void correctMinimumOrderIsReturnedInText() {
+        assertThat(notificationBuilder.build(), containsString("Min Order: 10\n"));
+    }
+
+    @Test
+    public void correctRackSpaceIsReturnedInText() {
+        assertThat(notificationBuilder.build(), containsString("Rack Space: 20"));
     }
 
     @Before
