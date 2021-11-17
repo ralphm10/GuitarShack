@@ -1,5 +1,5 @@
 package com.guitarshack;
 
 public interface Notification {
-    void send();
+    void send(String text);
 }
