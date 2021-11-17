@@ -1,6 +1,5 @@
 package com.guitarshack;
 
-import com.sun.media.sound.SF2Soundbank;
 import org.junit.Test;
 
 import static org.mockito.Mockito.mock;
