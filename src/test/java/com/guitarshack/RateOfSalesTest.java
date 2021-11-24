@@ -42,4 +42,10 @@ public class RateOfSalesTest {
         rateOfSales.perDay(757);
         verify(salesHistory).totalSales(anyInt(), eq(startDate), any());
     }
+
+    @Test
+    public void calculateEndDate() {
+        rateOfSales.perDay(757);
+        verify(salesHistory).totalSales(anyInt(), any(), eq(calendar.getTime()));
+    }
 }

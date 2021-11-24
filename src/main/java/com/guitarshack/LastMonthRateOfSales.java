@@ -18,6 +18,6 @@ public class LastMonthRateOfSales implements RateOfSales {
         calendar.setTime(today.get());
         calendar.add(Calendar.DATE,-30);
         Date startDate = calendar.getTime();
-        return salesHistory.totalSales(productId, startDate, null) / 30 ;
+        return salesHistory.totalSales(productId, startDate, today.get()) / 30 ;
     }
 }
