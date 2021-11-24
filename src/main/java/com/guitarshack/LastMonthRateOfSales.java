@@ -4,6 +4,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class LastMonthRateOfSales implements RateOfSales {
+    public static final int DATE_RANGE = 30;
     private final SalesHistory salesHistory;
     private final Today today;
 
@@ -16,8 +17,8 @@ public class LastMonthRateOfSales implements RateOfSales {
     public double perDay(int productId) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(today.get());
-        calendar.add(Calendar.DATE,-30);
+        calendar.add(Calendar.DATE, -DATE_RANGE);
         Date startDate = calendar.getTime();
-        return salesHistory.totalSales(productId, startDate, today.get()) / 30 ;
+        return (double) salesHistory.totalSales(productId, startDate, today.get()) / DATE_RANGE;
     }
 }

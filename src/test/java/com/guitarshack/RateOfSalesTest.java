@@ -21,13 +21,13 @@ public class RateOfSalesTest {
 
     @Test
     public void calculateRateOfSales() {
-        assertEquals(1, rateOfSales.perDay(757), 0);
+        assertEquals(1.5, rateOfSales.perDay(757), 0);
     }
 
     @Before
     public void setUp() {
         salesHistory = mock(SalesHistory.class);
-        when(salesHistory.totalSales(anyInt(), any(), any())).thenReturn(30);
+        when(salesHistory.totalSales(anyInt(), any(), any())).thenReturn(45);
         calendar = Calendar.getInstance();
         calendar.set(2021,Calendar.NOVEMBER,10);
         Date todaysDate = calendar.getTime();
