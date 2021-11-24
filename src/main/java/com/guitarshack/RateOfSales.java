@@ -1,5 +1,5 @@
 package com.guitarshack;
 
 public interface RateOfSales {
-    double perDay();
+    double perDay(int productId);
 }
