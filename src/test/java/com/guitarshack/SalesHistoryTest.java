@@ -11,7 +11,6 @@ import static org.junit.Assert.assertEquals;
 public class SalesHistoryTest {
 
     @Test
-    @Ignore
     public void retrievesCorrectTotal() {
         SalesHistory salesHistory = new ProductSalesHistory();
         Calendar calendar = Calendar.getInstance();
