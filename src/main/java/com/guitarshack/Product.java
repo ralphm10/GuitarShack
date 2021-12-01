@@ -1,33 +1,33 @@
 package com.guitarshack;
 
 public class Product {
-    private final int productId;
+    private final int id;
     private final String description;
     private final int stock;
-    private final int minimumOrder;
-    private final int rackSpace;
+    private final int minOrder;
+    private final int rackspace;
     private final int leadTime;
 
-    public Product(int productId, String description, int stock, int minimumOrder, int rackSpace, int leadTime) {
-        this.productId = productId;
+    public Product(int id, String description, int stock, int minOrder, int rackspace, int leadTime) {
+        this.id = id;
         this.description = description;
         this.stock = stock;
-        this.minimumOrder = minimumOrder;
-        this.rackSpace = rackSpace;
+        this.minOrder = minOrder;
+        this.rackspace = rackspace;
         this.leadTime = leadTime;
     }
 
     public int getId() {
-        return productId;
+        return id;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public int getMinOrder() { return minimumOrder; }
+    public int getMinOrder() { return minOrder; }
 
-    public int getRackSpace() { return rackSpace; }
+    public int getRackspace() { return rackspace; }
 
     public int getStock() { return stock; }
 

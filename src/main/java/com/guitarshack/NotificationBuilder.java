@@ -11,7 +11,7 @@ public class NotificationBuilder {
         return "Please re-order product id " + product.getId() +
                 " - " + product.getDescription() +
                 "\nMin Order: " + product.getMinOrder() +
-                "\nRack Space: " + product.getRackSpace()
+                "\nRack Space: " + product.getRackspace()
         ;
     }
 }
