@@ -1,5 +1,6 @@
 package com.guitarshack;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class ProductSalesHistory implements SalesHistory {
@@ -11,7 +12,10 @@ public class ProductSalesHistory implements SalesHistory {
 
     @Override
     public int totalSales(int productId, Date startDate, Date endDate) {
-        return salesWebService.getTotal();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("M/d/yyyy");
+        String startDateString = dateFormat.format(startDate);
+        String endDateString = dateFormat.format(endDate);
+        return salesWebService.getTotal(productId, startDateString, endDateString);
     }
 
 }
