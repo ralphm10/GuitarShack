@@ -11,5 +11,5 @@ public abstract class WarehouseTestBase {
         assertEquals(811, warehouse.getProduct(811).getId());
     }
 
-    protected abstract Warehouse createWarehouse();
+    public abstract Warehouse createWarehouse();
 }

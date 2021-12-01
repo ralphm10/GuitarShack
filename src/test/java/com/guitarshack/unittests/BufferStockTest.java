@@ -1,5 +1,9 @@
-package com.guitarshack;
+package com.guitarshack.unittests;
 
+import com.guitarshack.BufferStock;
+import com.guitarshack.LeadTimeBufferStock;
+import com.guitarshack.Product;
+import com.guitarshack.RateOfSales;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;

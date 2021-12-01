@@ -11,7 +11,7 @@ public class SalesWebService {
     public SalesWebService() {
     }
 
-    int getTotal(int productId, String startDateString, String endDateString) {
+    public int getTotal(int productId, String startDateString, String endDateString) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://gjtvhjg8e9.execute-api.us-east-2.amazonaws.com")
                 .addConverterFactory(GsonConverterFactory.create())

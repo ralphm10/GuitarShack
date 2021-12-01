@@ -1,5 +1,11 @@
-package com.guitarshack;
+package com.guitarshack.unittests;
 
+import com.guitarshack.BufferStock;
+import com.guitarshack.Notification;
+import com.guitarshack.NotificationBuilder;
+import com.guitarshack.Product;
+import com.guitarshack.SalesListener;
+import com.guitarshack.Warehouse;
 import org.junit.Test;
 
 import static org.mockito.ArgumentMatchers.any;

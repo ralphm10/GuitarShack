@@ -19,5 +19,5 @@ public abstract class SalesHistoryTestBase {
         assertEquals(16, salesHistory.totalSales(811, startDate, endDate));
     }
 
-    protected abstract SalesWebService createSalesWebService();
+    public abstract SalesWebService createSalesWebService();
 }

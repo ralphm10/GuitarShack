@@ -1,5 +1,9 @@
-package com.guitarshack;
+package com.guitarshack.unittests;
 
+import com.guitarshack.LastMonthRateOfSales;
+import com.guitarshack.RateOfSales;
+import com.guitarshack.SalesHistory;
+import com.guitarshack.Today;
 import org.junit.Before;
 import org.junit.Test;
 import java.util.Calendar;
