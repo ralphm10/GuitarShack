@@ -1,5 +1,6 @@
 package com.guitarshack.unittests;
 
+import com.guitarshack.DateRangeCalculator;
 import com.guitarshack.LastMonthRateOfSales;
 import com.guitarshack.RateOfSales;
 import com.guitarshack.SalesHistory;
@@ -36,7 +37,7 @@ public class RateOfSalesTest {
         calendar.set(2021,Calendar.NOVEMBER,10);
         Date todaysDate = calendar.getTime();
         Today today = () -> todaysDate;
-        rateOfSales = new LastMonthRateOfSales(salesHistory, today);
+        rateOfSales = new LastMonthRateOfSales(salesHistory, new DateRangeCalculator(today));
     }
 
     @Test

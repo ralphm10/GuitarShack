@@ -1,25 +1,19 @@
 package com.guitarshack;
 
-import java.util.Calendar;
-import java.util.Date;
-
 public class LastMonthRateOfSales implements RateOfSales {
     public static final int DATE_RANGE = 30;
     private final SalesHistory salesHistory;
-    private final Today today;
+    private final DateRangeCalculator dateRangeCalculator;
 
-    public LastMonthRateOfSales(SalesHistory salesHistory, Today today) {
+    public LastMonthRateOfSales(SalesHistory salesHistory, DateRangeCalculator dateRangeCalculator) {
         this.salesHistory = salesHistory;
-        this.today = today;
+        this.dateRangeCalculator = dateRangeCalculator;
     }
 
     @Override
     public double perDay(int productId) {
-        Calendar calendar = Calendar.getInstance();
-        Date endDate = today.get();
-        calendar.setTime(endDate);
-        calendar.add(Calendar.DATE, -DATE_RANGE);
-        Date startDate = calendar.getTime();
-        return (double) salesHistory.totalSales(productId, startDate, endDate) / DATE_RANGE;
+        DateRange dateRange = dateRangeCalculator.getDateRange();
+        return (double) salesHistory.totalSales(productId, dateRange.getStartDate(), dateRange.getEndDate()) / dateRange.getLength();
     }
+
 }
