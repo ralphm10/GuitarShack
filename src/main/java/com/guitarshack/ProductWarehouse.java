@@ -17,12 +17,7 @@ public class ProductWarehouse implements Warehouse {
 
     @Override
     public Product getProduct(int productId) {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(baseUrl)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        WarehouseService service = retrofit.create(WarehouseService.class);
+        WarehouseService service = getWarehouseService();
 
         Call<Product> productCall = service.getProduct(productId);
 
@@ -34,5 +29,15 @@ public class ProductWarehouse implements Warehouse {
             e.printStackTrace();
         }
         return product;
+    }
+
+    private WarehouseService getWarehouseService() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(baseUrl)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        WarehouseService service = retrofit.create(WarehouseService.class);
+        return service;
     }
 }

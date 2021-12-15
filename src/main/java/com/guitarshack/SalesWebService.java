@@ -16,12 +16,7 @@ public class SalesWebService {
     }
 
     public int getTotal(int productId, String startDateString, String endDateString) {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(baseUrl)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        SalesService service = retrofit.create(SalesService.class);
+        SalesService service = getSalesService();
 
         Call<SalesTotal> salesTotalCall = service.getTotalSales(productId, startDateString, endDateString, "total");
 
@@ -35,5 +30,15 @@ public class SalesWebService {
             e.printStackTrace();
         }
         return total;
+    }
+
+    private SalesService getSalesService() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(baseUrl)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        SalesService service = retrofit.create(SalesService.class);
+        return service;
     }
 }
