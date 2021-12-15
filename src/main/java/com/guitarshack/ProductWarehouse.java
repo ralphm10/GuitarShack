@@ -8,10 +8,17 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import java.io.IOException;
 
 public class ProductWarehouse implements Warehouse {
+
+    private final String baseUrl;
+
+    public ProductWarehouse(String baseUrl) {
+        this.baseUrl = baseUrl;
+    }
+
     @Override
     public Product getProduct(int productId) {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://6hr1390c1j.execute-api.us-east-2.amazonaws.com")
+                .baseUrl(baseUrl)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -23,7 +30,7 @@ public class ProductWarehouse implements Warehouse {
         try {
             Response<Product> execute = productCall.execute();
             product = execute.body();
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return product;

@@ -8,7 +8,7 @@ public class WarehouseContractTest extends WarehouseTestBase {
 
     @Override
     public Warehouse createWarehouse() {
-        return new ProductWarehouse();
+        return new ProductWarehouse("https://6hr1390c1j.execute-api.us-east-2.amazonaws.com");
     }
 
 }

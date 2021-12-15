@@ -1,5 +1,6 @@
-package com.guitarshack;
+package com.guitarshack.robustnesstests;
 
+import com.guitarshack.SalesWebService;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
