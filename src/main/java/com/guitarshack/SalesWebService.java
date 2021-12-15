@@ -8,12 +8,16 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import java.io.IOException;
 
 public class SalesWebService {
-    public SalesWebService() {
+
+    private final String baseUrl;
+
+    public SalesWebService(String baseUrl) {
+        this.baseUrl = baseUrl;
     }
 
     public int getTotal(int productId, String startDateString, String endDateString) {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://gjtvhjg8e9.execute-api.us-east-2.amazonaws.com")
+                .baseUrl(baseUrl)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -27,7 +31,7 @@ public class SalesWebService {
             Response<SalesTotal> execute = salesTotalCall.execute();
             SalesTotal body = execute.body();
             total = body.total;
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return total;
