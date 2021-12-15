@@ -15,7 +15,7 @@ public class ProductSalesHistory implements SalesHistory {
         SimpleDateFormat dateFormat = new SimpleDateFormat("M/d/yyyy");
         String startDateString = dateFormat.format(startDate);
         String endDateString = dateFormat.format(endDate);
-        return salesWebService.getTotal(productId, startDateString, endDateString);
+        return salesWebService.getTotal(productId, startDateString, endDateString).total;
     }
 
 }

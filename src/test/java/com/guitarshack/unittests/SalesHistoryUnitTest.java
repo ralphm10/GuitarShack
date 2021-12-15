@@ -1,6 +1,7 @@
 package com.guitarshack.unittests;
 
 import com.guitarshack.SalesHistoryTestBase;
+import com.guitarshack.SalesTotal;
 import com.guitarshack.SalesWebService;
 
 import static org.mockito.ArgumentMatchers.any;
@@ -12,7 +13,9 @@ public class SalesHistoryUnitTest extends SalesHistoryTestBase {
     @Override
     public SalesWebService createSalesWebService() {
         SalesWebService mockSalesWebService = mock(SalesWebService.class);
-        when(mockSalesWebService.getTotal(anyInt(), any(), any())).thenReturn(16);
+        SalesTotal salesTotal = new SalesTotal();
+        salesTotal.total = 16;
+        when(mockSalesWebService.getTotal(anyInt(), any(), any())).thenReturn(salesTotal);
         return mockSalesWebService;
     }
 }
