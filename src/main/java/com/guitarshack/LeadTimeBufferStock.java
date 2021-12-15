@@ -10,6 +10,6 @@ public class LeadTimeBufferStock implements BufferStock {
 
     @Override
     public int calculate(Product product) {
-        return (int) Math.round(product.getLeadTime() * rateOfSales.perDay(757));
+        return (int) Math.round(product.getLeadTime() * rateOfSales.perDay(product.getId()));
     }
 }

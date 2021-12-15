@@ -13,8 +13,12 @@ public class SalesListener {
 
     public void onSale(int productId, int quantity) {
         Product product = warehouse.getProduct(productId);
-        if(product.getStock() - quantity <= bufferStock.calculate(product)) {
+        if(reorderRequired(quantity, product)) {
             notification.send(new NotificationBuilder(product).build());
         }
+    }
+
+    private boolean reorderRequired(int quantity, Product product) {
+        return product.getStock() - quantity <= bufferStock.calculate(product);
     }
 }

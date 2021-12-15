@@ -16,9 +16,10 @@ public class LastMonthRateOfSales implements RateOfSales {
     @Override
     public double perDay(int productId) {
         Calendar calendar = Calendar.getInstance();
-        calendar.setTime(today.get());
+        Date endDate = today.get();
+        calendar.setTime(endDate);
         calendar.add(Calendar.DATE, -DATE_RANGE);
         Date startDate = calendar.getTime();
-        return (double) salesHistory.totalSales(productId, startDate, today.get()) / DATE_RANGE;
+        return (double) salesHistory.totalSales(productId, startDate, endDate) / DATE_RANGE;
     }
 }
