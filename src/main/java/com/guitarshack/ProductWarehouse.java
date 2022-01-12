@@ -2,19 +2,19 @@ package com.guitarshack;
 
 import retrofit2.Call;
 
-public class ProductWarehouse extends Service implements Warehouse {
+public class ProductWarehouse implements Warehouse {
 
-    public ProductWarehouse(String baseUrl) {
-        super(baseUrl);
+    private final Service service;
+
+    public ProductWarehouse(Service service) {
+        this.service = service;
     }
 
     @Override
     public Product getProduct(int productId) {
-        WarehouseService service = getService(WarehouseService.class);
-
-        Call<Product> productCall = service.getProduct(productId);
-
-        return executeCall(productCall);
+        WarehouseService warehouseService = service.getService(WarehouseService.class);
+        Call<Product> productCall = warehouseService.getProduct(productId);
+        return service.executeCall(productCall);
     }
 
 }
