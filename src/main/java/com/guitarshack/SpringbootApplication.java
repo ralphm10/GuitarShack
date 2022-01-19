@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
         @GetMapping("/")
         public String hello() {
-            return "Hello world!";
+            return "Hello Guitar Shack!";
         }
 
     }
