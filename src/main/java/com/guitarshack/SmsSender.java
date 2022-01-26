@@ -11,8 +11,8 @@ public class SmsSender implements Notification {
     public void send(String text) {
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
         Message.creator(
-                        new com.twilio.type.PhoneNumber(System.getenv("FROM")),
                         new com.twilio.type.PhoneNumber(System.getenv("TO")),
+                        new com.twilio.type.PhoneNumber(System.getenv("FROM")),
                         text)
                 .create();
     }
