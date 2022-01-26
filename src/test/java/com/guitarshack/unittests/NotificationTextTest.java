@@ -15,7 +15,6 @@ public class NotificationTextTest {
 
     @Test
     public void correctProductIdIsReturnedInText() {
-        fail();
         assertThat(notificationBuilder.build(), containsString("Please re-order product id 757"));
     }
 
