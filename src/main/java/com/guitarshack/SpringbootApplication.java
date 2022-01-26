@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Calendar;
-import java.util.Date;
 
 @SpringBootApplication
     @RestController
@@ -18,6 +17,8 @@ import java.util.Date;
 
         @GetMapping("/")
         public String hello() {
+            SmsSender smsSender = new SmsSender();
+            smsSender.send("Hello Guitar Shack!");
             return "Hello Guitar Shack!";
         }
 
