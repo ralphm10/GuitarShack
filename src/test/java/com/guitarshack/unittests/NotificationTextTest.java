@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.fail;
 
 public class NotificationTextTest {
 
@@ -14,6 +15,7 @@ public class NotificationTextTest {
 
     @Test
     public void correctProductIdIsReturnedInText() {
+        fail();
         assertThat(notificationBuilder.build(), containsString("Please re-order product id 757"));
     }
 
