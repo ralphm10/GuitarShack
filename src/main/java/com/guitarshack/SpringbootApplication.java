@@ -18,5 +18,10 @@ import org.springframework.web.bind.annotation.RestController;
             return "Hello Guitar Shack!";
         }
 
+        @GetMapping("/sale")
+        public String sale(int productId, int quantity)  {
+            return quantity + " of " + productId + " sold " ;
+        }
+
     }
 
