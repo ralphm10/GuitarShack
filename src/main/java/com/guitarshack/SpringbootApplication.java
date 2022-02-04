@@ -25,17 +25,19 @@ import java.util.Calendar;
         @GetMapping("/sale")
         public String sale(int productId, int quantity)  {
             Today today = () -> Calendar.getInstance().getTime();
-            Notification notification = text -> {};
+            Notification notification = new SmsSender();
+            final String warehouseServiceUrl = System.getenv("WAREHOUSE_SERVICE_URL");
+            final String salesServiceUrl = System.getenv("SALES_SERVICE_URL");
             SalesListener salesListener = new SalesListener(
                     notification,
                     new ProductWarehouse(
-                            new RetrofitService("https://6hr1390c1j.execute-api.us-east-2.amazonaws.com")
+                            new RetrofitService(warehouseServiceUrl)
                     ),
                     new LeadTimeBufferStock(
                             new LastMonthRateOfSales(
                                     new ProductSalesHistory(
                                             new SalesWebService(
-                                                    new RetrofitService("https://gjtvhjg8e9.execute-api.us-east-2.amazonaws.com")
+                                                    new RetrofitService(salesServiceUrl)
                                             )
                                     ),
                                     new DateRangeCalculator(today)
